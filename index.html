@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolution of Electric Vehicles</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+     :root {
+      --bg-light: #f3f4f6;
+      --text-light: #111827;
+      --bg-dark: #1f2937;
+      --text-dark: #f9fafb;
+    }
+
+    .dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .light {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+  <header class="text-center py-10 bg-green-700 text-black fade-in">
+    <h1 class="text-4xl font-bold">Evolution of Electric Vehicles</h1>
+    <p class="mt-2">From Origins to the Future - A Global and Indian Perspective</p>
+  
+  </header>
+
+  <section class="px-6 py-10 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold mb-6">2-Wheeler Electric Vehicles: Introduction</h2>
+    <p class="mb-4">Electric 2-wheelers have gained rapid traction in India due to their low cost, eco-friendliness, and adaptability in urban traffic. Brands like Ola Electric, Ather Energy, and Hero Electric are leading the way in innovation and affordability. Globally, China dominates the market with giants like NIU and Yadea.</p>
+
+    <canvas id="barChart2Wheeler" class="my-6"></canvas>
+
+    <p class="mb-4">In India, sales of e-scooters surged from 2 lakh units in 2021 to over 8 lakh in 2024. This shows the growing trust and adoption of green mobility options. Comparatively, petrol scooters are seeing a steady decline, with younger consumers preferring sustainability over power.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-4 bg-white rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">India Comparison: EV vs Petrol (2024)</h3>
+        <canvas id="evVsPetrolIndia"></canvas>
+      </div>
+      <div class="p-4 bg-white rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">World Comparison: EV vs Petrol</h3>
+        <canvas id="evVsPetrolWorld"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-10 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold mb-6">4-Wheeler Electric Vehicles: Introduction</h2>
+    <p class="mb-4">Electric cars have evolved drastically with brands like Tesla, BYD, Tata Motors, and Hyundai pushing innovation. India saw over 1.5 lakh EV car registrations in 2024. Charging infrastructure and government subsidies have made EVs a viable option in cities and semi-urban areas.</p>
+
+    <canvas id="barChart4Wheeler" class="my-6"></canvas>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-4 bg-white rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">India 4W: EV vs Petrol/Diesel</h3>
+        <canvas id="fourWIndia"></canvas>
+      </div>
+      <div class="p-4 bg-white rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Global 4W: EV vs Others</h3>
+        <canvas id="fourWWorld"></canvas>
+      </div>
+    </div>
+
+    <p class="mt-6">Globally, Tesla and BYD dominate the EV car market. In India, Tata Nexon EV and MG ZS EV are leading in affordability and range.</p>
+  </section>
+
+  <section class="px-6 py-10 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold mb-6">Top Electric Vehicle Companies</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Tesla</strong> – Global innovation leader</li>
+      <li><strong>BYD (China)</strong> – Massive scale in Asia</li>
+      <li><strong>Tata Motors</strong> – India's domestic leader</li>
+      <li><strong>Ather Energy</strong> – Leading 2W EV innovation in India</li>
+      <li><strong>Ola Electric</strong> – Large scale EV production and expansion</li>
+      <li><strong>Hyundai & Kia</strong> – Affordable global EV range</li>
+    </ul>
+  </section>
+
+  <main class="px-6 py-10 max-w-5xl mx-auto space-y-12 fade-in">
+    <section>
+      <h2 class="text-3xl font-semibold mb-4">Environmental Impact</h2>
+      <p>Electric vehicles produce zero tailpipe emissions, significantly reducing urban air pollution. Traditional fuel vehicles release CO₂, NOx, and PM2.5 particles, which worsen climate change and health conditions.</p>
+      <canvas id="pollutionChart" class="my-6"></canvas>
+    </section>
+
+     <section>
+      <h2 class="text-3xl font-semibold mb-4">Battery Technology: Evolution Over a Century</h2>
+      <p>Battery technology has been at the core of electric vehicle development. Over the past 100 years, it has transformed from simple lead-acid batteries to modern lithium-ion and solid-state cells:</p>
+      <ul class="list-disc pl-6 mt-4">
+        <li><strong>1920s–1950s:</strong> Lead-acid batteries were bulky, low energy density, short life cycle.</li>
+        <li><strong>1970s:</strong> Nickel-Cadmium (NiCd) emerged with better storage but had memory issues.</li>
+        <li><strong>1990s:</strong> Nickel-Metal Hydride (NiMH) improved safety and lifespan, used in hybrids.</li>
+        <li><strong>2000s–Present:</strong> Lithium-ion became the standard for EVs: lightweight, high energy density, fast charging.</li>
+        <li><strong>Future (2030+):</strong> Solid-state batteries promise even higher density, faster charging, longer life, and lower fire risk.</li>
+      </ul>
+      <img src = "Electric-Vehicle-Battery-Image.jpg">
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4">Spare Parts & Maintenance</h2>
+      <ul class="list-disc pl-6">
+        <li>EVs have fewer moving parts: no engine oil, fewer fluids, minimal brake wear.</li>
+        <li>ICE vehicles require frequent oil changes, clutch, gear, and exhaust maintenance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4">Affordability & Cost</h2>
+      <p>EVs have higher upfront costs but lower operating expenses. With government subsidies, EVs are becoming more accessible.</p>
+      <img src = "advantages-disadvantages-electric-cars.jpg">
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4">Top Manufacturers</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h3 class="text-xl font-bold">India</h3>
+          <ul class="list-disc pl-6">
+            <li>Ola Electric</li>
+            <li>Ather Energy</li>
+            <li>Hero Electric</li>
+            <li>Tata Motors</li>
+            <li>Mahindra Electric</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">World</h3>
+          <ul class="list-disc pl-6">
+            <li>Tesla</li>
+            <li>BYD</li>
+            <li>Volkswagen Group</li>
+            <li>Hyundai-Kia</li>
+            <li>Renault-Nissan</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4">Government Initiatives</h2>
+      <ul class="list-disc pl-6">
+        <li><strong>India:</strong> FAME II Scheme, state subsidies, GST reduction (12% to 5%).</li>
+        <li><strong>Global:</strong> Tax credits (USA), CO₂ emission fines (EU), EV mandates (China).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4">Future Outlook</h2>
+      <p>EVs are set to dominate the auto market by 2030, especially in urban mobility. Fuel vehicles will continue in rural/industrial zones but gradually phase out due to regulation and public awareness.</p>
+    </section>
+  </main>
+
+  <footer class="text-center py-6 bg-gray-800 text-white fade-in">
+    <p>&copy; 2025 Electric Future. All Rights Reserved| Created by Gaurav & Jatin.</p>
+  </footer>
+
+  <script>
+    
+    
+    // Bar chart for 2-wheeler evolution
+    new Chart(document.getElementById('barChart2Wheeler'), {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+          label: 'EV 2-Wheelers (in lakh)',
+          data: [0.8, 1.2, 2, 4, 6, 8.3],
+          backgroundColor: '#10B981'
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('evVsPetrolIndia'), {
+      type: 'bar',
+      data: {
+        labels: ['EV', 'Petrol'],
+        datasets: [{
+          label: 'India 2024 (Lakh units)',
+          data: [8.3, 24],
+          backgroundColor: ['#10B981', '#EF4444']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('evVsPetrolWorld'), {
+      type: 'bar',
+      data: {
+        labels: ['EV', 'Petrol'],
+        datasets: [{
+          label: 'World 2024 (Million units)',
+          data: [20, 70],
+          backgroundColor: ['#3B82F6', '#F59E0B']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('barChart4Wheeler'), {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+          label: 'EV Cars (India, in lakh)',
+          data: [0.3, 0.5, 0.8, 1.1, 1.2, 1.5],
+          backgroundColor: '#6366F1'
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('fourWIndia'), {
+      type: 'bar',
+      data: {
+        labels: ['EV', 'Petrol', 'Diesel'],
+        datasets: [{
+          label: '4W India (2024)',
+          data: [1.5, 9, 5],
+          backgroundColor: ['#10B981', '#F87171', '#FBBF24']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('fourWWorld'), {
+      type: 'bar',
+      data: {
+        labels: ['EV', 'Hybrid', 'Petrol/Diesel'],
+        datasets: [{
+          label: '4W Global (2024, Million Units)',
+          data: [20, 15, 65],
+          backgroundColor: ['#06B6D4', '#FACC15', '#9CA3AF']
+        }]
+      }
+    });
+
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+    });
+
+    new Chart(document.getElementById('pollutionChart'), {
+      type: 'bar',
+      data: {
+        labels: ['EV', 'Petrol Car', 'Diesel Car'],
+        datasets: [{
+          label: 'CO₂ Emissions (g/km)',
+          data: [0, 120, 150],
+          backgroundColor: ['#10B981', '#F87171', '#F59E0B']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('costChart'), {
+      type: 'line',
+      data: {
+        labels: ['Initial', '1 year', '3 years', '5 years'],
+        datasets: [
+          {
+            label: 'EV Cost (₹)',
+            data: [150000, 170000, 180000, 190000],
+            borderColor: '#3B82F6',
+            fill: false
+          },
+          {
+            label: 'Fuel Vehicle Cost (₹)',
+            data: [100000, 140000, 180000, 220000],
+            borderColor: '#EF4444',
+            fill: false
+          }
+        ]
+      }
+    });
+
+  </script>
+</body>
+
+</html>
